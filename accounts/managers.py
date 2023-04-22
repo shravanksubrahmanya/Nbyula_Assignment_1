@@ -2,7 +2,7 @@ from django.contrib.auth.models import BaseUserManager
 # from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 class CustomUserManager(BaseUserManager):
-    def create_user(self, username, fname, lname, email, password):
+    def create_user(self, username, fname, lname, email, password, profile_pic):
         if not email:
             raise ValueError('User must provide valid email address')
         if not password:
@@ -15,7 +15,7 @@ class CustomUserManager(BaseUserManager):
             lname = lname,
             username = username,
             email = self.normalize_email(email=email), # it normalizes the email for storage
-            
+            profile_pic = profile_pic
         )
 
         user.set_password(raw_password = password) # it hashes password before setting it up into the database
@@ -23,13 +23,14 @@ class CustomUserManager(BaseUserManager):
         return user
 
     
-    def create_superuser(self, username, fname, lname, email, password):
+    def create_superuser(self, username, fname, lname, email, password, profile_pic):
         user = self.create_user(
             fname = fname,
             lname = lname,
             username= username,
             email=email, 
             password= password,
+            profile_pic = profile_pic
         )
         user.is_admin = True
         user.is_staff = True

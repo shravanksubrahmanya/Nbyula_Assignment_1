@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="user-details"> 
+    {% if user.profile_pic %}
+        <p class="profile_pic"> <img src="{{ user.profile_pic.url }}" alt="{{ user.username }}" height="200px" width="200px"> </p>
+    {% else %}
+        <p class="profile_pic"> <span class="glyphicon glyphicon-user" style="font-sixe:100px;" > </span> </p>
+    {% endif %}
+
+    <h3> @{{user.username}} </h3>
+
+    <p> {{ user.fullname }} </p>
+
+    <p> {{ user.email }} </p>
+
+    {% if user.is_authenticated %}
+        <a class = 'btn btn-primary' href="{% url 'accounts:account_update' pk=user.pk %}"> 
+            <span class="glyphicon glyphicon-edit" style="margin:3px; padding-right:3px;"> </span>Update Details
+        </a>
+        <a class = 'btn btn-primary' href="{% url 'accounts:password_update' pk=user.pk %}"> 
+            <span class="glyphicon glyphicon-pencil" style="margin:3px; padding-right:3px;"></span>Change Password
+        </a>
+    {% endif %}
+</div>
+
+{% endblock content %}

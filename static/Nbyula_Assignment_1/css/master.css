@@ -1,7 +1,13 @@
+
 .website{
     font-family: 'Russo One',sans-serif;
     margin-left: 5px;
     margin-right: 5px;
+  }
+
+  .menu{
+    background-color: #08f;
+    border-bottom: 1px;
   }
   
   .describe_font{
@@ -23,11 +29,6 @@
   .centerstage{
   margin-left: auto; /* to center it*/
   margin-right: auto;
-  }
-  
-  .btn-comment{
-  position: absolute;
-  right: 0px;
   }
   
   .loader {
@@ -65,3 +66,52 @@
     100%{filter:hue-rotate(360deg);}
     
   }
+
+.account_form{
+  padding: 0px 200px 0px 200px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+}
+
+.account_form > h1{
+  font-family: 'Russo One',sans-serif;
+}
+
+.topbar{
+  width: 100%;
+  height: fit-content;
+}
+
+.t-col1{
+  flex-basis: 50%;
+}
+
+
+.t-col2{
+  font-family: 'Russo One',sans-serif;
+  color: black;
+  padding: 20px;
+}
+
+.t-col2 > h2{
+  font-size: 40px;
+}
+
+.t-col2>p{
+  font-family: Moontserrat;
+  font-size: 25px;
+}
+
+.middle-layer{
+  padding: 10px;
+  margin-top: 5px;
+  background-color: skyblue;
+  font-family: 'Russo One',sans-serif;
+  font-size: 20px;
+}
+
+.custom-user{
+  border: 1px black;
+}

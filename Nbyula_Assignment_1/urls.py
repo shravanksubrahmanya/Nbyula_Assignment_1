@@ -25,4 +25,4 @@ urlpatterns = [
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path("accounts/", include('django.contrib.auth.urls')),
     path('meeting_scheduler/', include('Meeting_scheduler.urls', namespace='meeting_scheduler')),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # to display images on web pages

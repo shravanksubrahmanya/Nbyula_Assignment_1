@@ -1,0 +1,28 @@
+.user-details{
+    font-family: 'Montserrat';
+    font-size: 1.5em;
+}
+
+.username{
+    font-family: 'Russo One',sans-serif;
+    font-size: 2em;
+}
+
+
+.user-details .glyphicon-user{
+    font-size: 200px;
+}
+
+.user-card{
+    display: inline-block;
+    margin: 10px 20px 10px 20px;
+}
+
+.wrap-flex {
+    display: flex;
+    align-items: stretch; /* baseline | center | stretch */
+  }
+
+.disp{
+    display: inline-block;
+}

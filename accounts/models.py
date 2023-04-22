@@ -1,7 +1,9 @@
 from django.db import models
+import os
 from django.contrib import auth
 from django.urls import reverse
 from django.db.models.signals import post_save
+from django.core.files.storage import default_storage
 
 # for custom user
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, User
@@ -13,7 +15,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     fname = models.CharField(max_length=50, verbose_name="First Name")
     lname = models.CharField(max_length=50, verbose_name="Last Name")
     email = models.EmailField(max_length=50, unique=True, blank=False, verbose_name="Your Email ")
-    # profile_pic = models.ImageField(upload_to='profile_pics', blank=True, verbose_name="Your profile picture ")
+    profile_pic = models.ImageField(upload_to='profile_pics', blank=True, verbose_name="Your profile picture ")
     is_active = models.BooleanField(default=True) # anyone who signs up for thsi application is by default an active user   
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
@@ -27,3 +29,11 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'username'
     EMAIL_FIELD = 'email'
+
+    def fullname(self):
+        return self.fname +" " + self.lname
+    
+    def get_absolute_url(self):
+        return reverse("accounts:account_details", kwargs={"pk": self.pk})
+
+    
