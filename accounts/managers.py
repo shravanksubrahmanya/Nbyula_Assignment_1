@@ -15,6 +15,7 @@ class CustomUserManager(BaseUserManager):
             lname = lname,
             username = username,
             email = self.normalize_email(email=email), # it normalizes the email for storage
+            
         )
 
         user.set_password(raw_password = password) # it hashes password before setting it up into the database
@@ -28,7 +29,7 @@ class CustomUserManager(BaseUserManager):
             lname = lname,
             username= username,
             email=email, 
-            password= password
+            password= password,
         )
         user.is_admin = True
         user.is_staff = True

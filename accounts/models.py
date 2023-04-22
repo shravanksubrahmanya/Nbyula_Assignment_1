@@ -13,6 +13,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     fname = models.CharField(max_length=50, verbose_name="First Name")
     lname = models.CharField(max_length=50, verbose_name="Last Name")
     email = models.EmailField(max_length=50, unique=True, blank=False, verbose_name="Your Email ")
+    # profile_pic = models.ImageField(upload_to='profile_pics', blank=True, verbose_name="Your profile picture ")
     is_active = models.BooleanField(default=True) # anyone who signs up for thsi application is by default an active user   
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
