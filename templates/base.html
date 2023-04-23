@@ -79,8 +79,8 @@
                             <li> <a href="{% url 'logout' %}"> <span class="btn btn-warning"> Logout </span> </a> </li>
                             <li class="custom-user"> <a href="{% url 'accounts:account_details' pk=user.pk %}"> <span class="btn btn-primary glyphicon glyphicon-user"></span> </a> </li>
                     {% else %}
-                    <li> <a href="{% url 'accounts:login' %}" class = "nav navbar-right"> Login </a> </li>
-                    <li> <a href="{% url 'accounts:signup' %}"> Sign Up </a> </li>
+                    <li> <a href="{% url 'accounts:login' %}" class = "nav navbar-right"> <span class="btn btn-primary">Login</span> </a> </li>
+                    <li> <a href="{% url 'accounts:signup' %}"> <span class="btn btn-warning"> Sign Up </span> </a> </li>
                     {% endif %}
                 </ul>
             </div>
