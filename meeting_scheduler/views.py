@@ -26,7 +26,7 @@ class OffHourCreateView(CreateView, LoginRequiredMixin):
             form.add_error('date', 'Please select a date in the future')
             return self.form_invalid(form)
         
-        if form.instance.date == timezone.now.date():
+        if form.instance.date == timezone.now().date():
             if  form.instance.start_time < timezone.now().time():
                 form.add_error('start_time', 'Start time should be greater than current time')
                 return self.form_invalid(form)
@@ -60,6 +60,13 @@ class AppointmentCreateView(CreateView, LoginRequiredMixin):
         if form.instance.start_time and form.instance.end_time and form.instance.start_time >= form.instance.end_time:
             form.add_error('end_time', 'Start time should be earlier than end time')
             return self.form_invalid(form)
+        
+        guest_off_hours = OffHour.objects.filter(terraformer = form.instance.guest)
+        for off_hour in guest_off_hours:
+            if form.instance.date == off_hour.date:
+                if form.instance.start_time < off_hour.end_time and form.instance.end_time > off_hour.start_time:
+                    form.add_error('guest','The guest is not available for this time slot')
+                    return self.form_invalid(form)
         
         return super().form_valid(form)
 

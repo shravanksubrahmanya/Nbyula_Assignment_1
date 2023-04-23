@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'meeting_scheduler',
     'accounts',
+    'django_select2',
     'bootstrap_datepicker_plus',
 ]
 

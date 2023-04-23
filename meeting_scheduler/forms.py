@@ -4,6 +4,8 @@ from django.contrib.admin.widgets import AdminTimeWidget
 from django.utils import timezone
 from .widgets import DatePickerInput, TimePickerInput, DateTimePickerInput
 from django.core.exceptions import ValidationError
+from django_select2.forms import Select2Widget
+from accounts.models import CustomUser
 
 class OffHourForm(forms.ModelForm):
     class Meta:
