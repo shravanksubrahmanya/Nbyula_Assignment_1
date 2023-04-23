@@ -10,5 +10,8 @@ urlpatterns = [
     # path("jsi18n", JavaScriptCatalog.as_view(), name="js-catalog"),
     path("appointment/create/<int:pk>", views.AppointmentCreateView.as_view(), name="appointment_create"),
     path("offhour/list", views.OffHourListView.as_view(), name="offhour_list"),
-    path("schedule/list/<int:pk>", views.ScheduleListView.as_view(), name="schedule_list"),
+    path("schedule/list/", views.ScheduleListView.as_view(), name="schedule_list"),
+    path("appointment/list/", views.AppointmentListView.as_view(), name="appointment_list"),
+    path("appointment/accept/<int:pk>", views.appointment_approve, name="accept_appointment"),
+    path("appointment/reject/<int:pk>", views.appointment_reject, name="reject_appointment"),
 ]

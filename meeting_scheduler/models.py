@@ -33,10 +33,19 @@ class Appointment(models.Model):
     date = models.DateField(auto_now=False, auto_now_add=False, verbose_name="Enter date of the meeting")
     start_time = models.TimeField(auto_now=False, auto_now_add=False, verbose_name="Enter start time of the meeting")
     end_time = models.TimeField(auto_now=False, auto_now_add=False, verbose_name="Enter end time of the meeting")
+    status = models.BooleanField(null=True, verbose_name="status of the appointment")
 
     class Meta:
         verbose_name = "Appointment"
         verbose_name_plural = "Appointments"
+
+    def accept_appointment(self):
+        self.status = True
+        self.save()
+    
+    def reject_appointment(self):
+        self.status = False
+        self.save()
 
     def __str__(self):
         return self.title

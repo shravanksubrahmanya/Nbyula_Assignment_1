@@ -69,15 +69,15 @@
             <div class= "container">
                     {% comment %} anything we put in the navbar will be contained by the container {% endcomment %}
                 <ul class="nav navbar-nav">
-                    <li> <a href="{% url 'home' %}"> Meeting Scheduler </a> </li>
+                    <li> <a href="{% url 'home' %}"> <span class="glyphicon-bold text-success"> TMS </span> </a> </li>
                 </ul>
 
                 <ul class = "nav navbar-nav navbar-right"> 
                     {% if user.is_authenticated %}
-                            <li> <a href = ""> My Appointments </a> </li>
-                            <li> <a href = "{% url 'meeting_scheduler:schedule_list' pk=user.pk %}"> Scheduled Meeting </a> </li>
-                            <li> <a href="{% url 'logout' %}"> Logout </a> </li>
-                            <li class="custom-user"> <a href="{% url 'accounts:account_details' pk=user.pk %}"> <span class="glyphicon glyphicon-user"></span> </a> </li>
+                            <li> <a href = "{% url 'meeting_scheduler:appointment_list' %}"> My Appointments </a> </li>
+                            <li> <a href = "{% url 'meeting_scheduler:schedule_list' %}"> Scheduled Meeting </a> </li>
+                            <li> <a href="{% url 'logout' %}"> <span class="btn btn-warning"> Logout </span> </a> </li>
+                            <li class="custom-user"> <a href="{% url 'accounts:account_details' pk=user.pk %}"> <span class="btn btn-primary glyphicon glyphicon-user"></span> </a> </li>
                     {% else %}
                     <li> <a href="{% url 'accounts:login' %}" class = "nav navbar-right"> Login </a> </li>
                     <li> <a href="{% url 'accounts:signup' %}"> Sign Up </a> </li>

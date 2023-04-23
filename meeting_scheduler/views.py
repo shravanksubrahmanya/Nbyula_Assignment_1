@@ -1,9 +1,9 @@
 from django.shortcuts import render
-
+from django.db.models import Q
 # user called modules 
 from meeting_scheduler.forms import OffHourForm, AppointmentForm
 from meeting_scheduler.models import OffHour, Appointment
-from django.shortcuts import render, get_list_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
@@ -82,6 +82,28 @@ class ScheduleListView(ListView, LoginRequiredMixin):
     model = Appointment
     template_name = "schedule_list.html"
     login_url = 'login/'
-    
+
     def get_queryset(self):
-        return Appointment.objects.filter(date__gte = timezone.now()).filter(guest = self.request.user).order_by('-date')
+        return Appointment.objects.filter(date__gte = timezone.now()).filter(Q(guest__exact=self.request.user) | Q(terraformer = self.request.user)).filter(status__isnull = True).order_by('-date')
+    
+
+class AppointmentListView(ListView, LoginRequiredMixin):
+    model = Appointment
+    template_name = "appointment_list.html"
+    login_url = 'login/'
+
+    def get_queryset(self):
+        return Appointment.objects.filter(date__gte = timezone.now()).filter(Q(guest__exact=self.request.user) | Q(terraformer = self.request.user)).filter(status = True).order_by('-date')
+    
+
+@login_required
+def appointment_approve(request, pk):
+    app = get_object_or_404(Appointment, pk = pk)
+    app.accept_appointment()
+    return redirect('meeting_scheduler:appointment_list')
+
+@login_required
+def appointment_reject(request, pk):
+    app = get_object_or_404(Appointment, pk = pk)
+    app.reject_appointment()
+    return redirect('meeting_scheduler:schedule_list')

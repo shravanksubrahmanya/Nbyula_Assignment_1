@@ -8,7 +8,7 @@
                 <h1>{{app.title}} </h1>
             </div>
             <div class="content">
-                <p> Status: <span class="glyphicon glyphicon-remove text-warning">  </span> Not Confirmed </p>
+                <p> Status: <span class="glyphicon glyphicon-ok text-success"> </span> Confirmed </p>
             </div>
             <div class="username">
                 <p>Meeting created by: <a href="{% url 'accounts:account_details' pk=app.terraformer.pk %}">
@@ -25,14 +25,6 @@
                 <p> Start time: {{app.start_time|time}}</p>
                 <p> End time: {{app.end_time|time}}</p>
             </div>
-            {% if user.is_authenticated and app.guest == user %}
-            <a class = 'btn btn-primary' href="{% url 'meeting_scheduler:accept_appointment' pk=app.pk %}"> 
-                <span class="glyphicon glyphicon-ok"> </span>
-            </a>
-            <a class = 'btn btn-danger' href="{% url 'meeting_scheduler:reject_appointment' pk=app.pk %}"> 
-                <span class="glyphicon glyphicon-remove"> </span>
-            </a>
-            {% endif %}
         </div>
     {% endfor %}
 </div>
