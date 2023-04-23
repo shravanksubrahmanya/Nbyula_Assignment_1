@@ -4,19 +4,19 @@
 
 {% block content %}
 <div class="user-details"> 
-    {% if user.profile_pic %}
-        <p class="profile_pic"> <img src="{{ user.profile_pic.url }}" alt="{{ user.username }}" height="200px" width="200px"> </p>
+    {% if customuser.profile_pic %}
+        <p class="profile_pic"> <img src="{{ customuser.profile_pic.url }}" alt="{{ customuser.username }}" height="200px" width="200px"> </p>
     {% else %}
         <p class="profile_pic"> <span class="glyphicon glyphicon-user" style="font-sixe:100px;" > </span> </p>
     {% endif %}
 
-    <h3> @{{user.username}} </h3>
+    <h3> @{{customuser.username}} </h3>
 
-    <p> {{ user.fullname }} </p>
+    <p> {{ customuser.fullname }} </p>
 
-    <p> {{ user.email }} </p>
+    <p> {{ customuser.email }} </p>
 
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and customuser.pk == user.pk%}
         <a class = 'btn btn-primary' href="{% url 'accounts:account_update' pk=user.pk %}"> 
             <span class="glyphicon glyphicon-edit" style="margin:3px; padding-right:3px;"> </span>Update Details
         </a>

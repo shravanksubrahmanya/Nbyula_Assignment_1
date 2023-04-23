@@ -4,6 +4,9 @@
 {% block content %}
     <div class = "container account_form">
         <h1> Provide Meeting Details </h1>
+        <p> Please check out Terraformers off hours for your reference 
+          <span> <a href="{% url 'meeting_scheduler:offhour_list' %}"> Click here </a> </span>
+        </p>
         {% if form.errors.date %}
             <div class="alert alert-danger">{{ form.errors.date }}</div>
         {% endif %}

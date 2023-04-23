@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="centerstage container"> 
+    {% for offhour in offhour_list %}
+        <div class="offhour_card"> 
+            <h1><a href="{% url 'accounts:account_details' pk=offhour.get_user_pk %}"> @{{offhour.get_user_name}} </a></h1>
+            <div class="date"> 
+                <p> Posted on: {{offhour.date|date:"D M Y"}}</p>
+            </div>
+            <div class="time"> 
+                <p> Start time: {{offhour.start_time|time}}</p>
+                <p> End time: {{offhour.end_time|time}}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -70,3 +70,10 @@ class AppointmentCreateView(CreateView, LoginRequiredMixin):
         
         return super().form_valid(form)
 
+
+class OffHourListView(ListView):
+    model = OffHour
+    template_name = "offhour_list.html"
+
+    def get_queryset(self):
+        return OffHour.objects.filter(date__gte = timezone.now()).order_by('-date')

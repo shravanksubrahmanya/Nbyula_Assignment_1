@@ -18,6 +18,12 @@ class OffHour(models.Model):
 
     def get_absolute_url(self):
         return reverse("OffHours_detail", kwargs={"pk": self.pk})
+    
+    def get_user_name(self):
+        return self.terraformer.username
+    
+    def get_user_pk(self):
+        return self.terraformer.pk
 
 class Appointment(models.Model):
     terraformer = models.ForeignKey('accounts.CustomUser', on_delete=models.CASCADE, related_name="creator")
