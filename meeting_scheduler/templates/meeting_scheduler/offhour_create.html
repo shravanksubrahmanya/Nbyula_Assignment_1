@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <div class = "container account_form">
+        <h1> Provide Off-Hour details </h1>
+        {% if form.errors.date %}
+            <div class="alert alert-danger">{{ form.errors.date }}</div>
+        {% endif %}
+        {% if form.errors.end_time %}
+            <div class="alert alert-danger">{{ form.errors.end_time }}</div>
+        {% endif %}
+        {% if form.errors.start_time %}
+            <div class="alert alert-danger">{{ form.errors.start_time }}</div>
+        {% endif %}
+        <form method = "POST" enctype="multipart/form-data"> 
+            {% csrf_token %}
+            {{form.media}}
+            {% bootstrap_form form %}
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+    </div>
+
+    <script>
+{% comment %} 
+          $(function () {
+            $("#id_end_date").datepicker({
+              format: 'dd/mm/yyyy',
+            });
+          });
+          $(function () {
+            $("#id_start_date").datepicker({
+              format: 'dd/mm/yyyy',
+            });
+          }); {% endcomment %}
+
+    </script>
+{% endblock content %}

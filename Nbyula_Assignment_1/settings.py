@@ -16,7 +16,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
-TEMPLATE_DIR_MEETING_SCHEDULER = os.path.join(BASE_DIR, 'Meeting_scheduler/templates')
+TEMPLATE_DIR_MEETING_SCHEDULER = os.path.join(BASE_DIR, 'meeting_scheduler/templates/meeting_scheduler')
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 # Quick-start development settings - unsuitable for production
@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'bootstrap4',
-    'Meeting_scheduler',
+    'meeting_scheduler',
     'accounts',
+    'bootstrap_datepicker_plus',
 ]
 
 MIDDLEWARE = [

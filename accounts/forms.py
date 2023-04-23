@@ -6,12 +6,8 @@ from django.contrib.auth.forms import PasswordChangeForm
 
 class SignUpForm(UserCreationForm):
     class Meta:
-        fields = ('profile_pic','username','fname','lname','email','password1','password2')
+        fields = ('username','fname','lname','email','password1','password2')
         model = CustomUser # using custom user model for Signup form
-
-        widgets = {
-            'profile_pic' : forms.ClearableFileInput(attrs = {'class':'fas fa-user-alt'})
-        }
 
 class AccountUpdateForm(forms.ModelForm):
     

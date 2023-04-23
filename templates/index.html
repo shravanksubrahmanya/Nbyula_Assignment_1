@@ -3,4 +3,11 @@
 
 {% block content %}
 <h1> this is Solution for Nbyula Assignment 1</h1>
+    <div class="container">
+        <div> 
+            {% if user.is_authenticated %}
+            <a href = "{% url 'meeting_scheduler:offhour_create' pk=user.pk %}"> Mark Off-hours </a>
+            {% endif %}
+        </div>
+    </div>
 {% endblock content %}

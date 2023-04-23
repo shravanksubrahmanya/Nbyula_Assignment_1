@@ -36,6 +36,23 @@
             
             {% comment %} font Oswald {% endcomment %}
             <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+
+            {% comment %} date time pickers
+            <!-- jQuery -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+            <!-- XDSoft DateTimePicker -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+
+            <!-- Fengyuan Chen's Datepicker -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css" integrity="sha256-b88RdwbRJEzRx95nCuuva+hO5ExvXXnpX+78h8DjyOE=" crossorigin="anonymous" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js" integrity="sha256-/7FLTdzP6CfC1VBAj/rsp3Rinuuu9leMRGd354hvk0k=" crossorigin="anonymous"></script> {% endcomment %}
+
+            {% comment %} <script src="{% url 'meeting_scheduler:js-catalog' %}"></script>
+            <script src="{% static '/admin/js/core.js' %}" ></script>
+            <link rel="stylesheet" href="{% static 'admin/css/base.css' %}">
+            <link rel="stylesheet" href="{% static 'admin/css/widgets.css' %}"> {% endcomment %}
     </head>
 
     <body>
@@ -51,7 +68,6 @@
                     {% if user.is_authenticated %}
                             <li> <a href = ""> My Appointments </a> </li>
                             <li> <a href = ""> Scheduled Meeting </a> </li>
-                            <li> <a href = ""> Mark Off-hours </a> </li>
                             <li> <a href="{% url 'logout' %}"> Logout </a> </li>
                             <li class="custom-user"> <a href="{% url 'accounts:account_details' pk=user.pk %}"> <span class="glyphicon glyphicon-user"></span> </a> </li>
                     {% else %}
