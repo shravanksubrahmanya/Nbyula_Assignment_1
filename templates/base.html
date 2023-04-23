@@ -75,7 +75,7 @@
                 <ul class = "nav navbar-nav navbar-right"> 
                     {% if user.is_authenticated %}
                             <li> <a href = ""> My Appointments </a> </li>
-                            <li> <a href = ""> Scheduled Meeting </a> </li>
+                            <li> <a href = "{% url 'meeting_scheduler:schedule_list' pk=user.pk %}"> Scheduled Meeting </a> </li>
                             <li> <a href="{% url 'logout' %}"> Logout </a> </li>
                             <li class="custom-user"> <a href="{% url 'accounts:account_details' pk=user.pk %}"> <span class="glyphicon glyphicon-user"></span> </a> </li>
                     {% else %}

@@ -3,11 +3,10 @@
     font-size: 1.5em;
 }
 
-.username{
+.heading{
     font-family: 'Russo One',sans-serif;
-    font-size: 2em;
+    font-size: 1.5em;
 }
-
 
 .user-details .glyphicon-user{
     font-size: 200px;

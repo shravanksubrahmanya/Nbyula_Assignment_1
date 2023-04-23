@@ -10,4 +10,5 @@ urlpatterns = [
     # path("jsi18n", JavaScriptCatalog.as_view(), name="js-catalog"),
     path("appointment/create/<int:pk>", views.AppointmentCreateView.as_view(), name="appointment_create"),
     path("offhour/list", views.OffHourListView.as_view(), name="offhour_list"),
+    path("schedule/list/<int:pk>", views.ScheduleListView.as_view(), name="schedule_list"),
 ]

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="centerstage container"> 
+    {% for app in appointment_list %}
+        <div class="appointment_card"> 
+            <div class="heading">
+                <h1>{{app.title}} </h1>
+            </div>
+            <div class="username">
+                <p>Meeting created by: <a href="{% url 'accounts:account_details' pk=app.terraformer.pk %}">
+                    @{{app.terraformer.username}}
+                </a></p>
+            </div>
+            <div class="content">
+                {{app.agenda|safe|linebreaksbr}}
+            </div>
+            <div class="date"> 
+                <p> Posted on: {{app.date|date:"D M Y"}}</p>
+            </div>
+            <div class="time"> 
+                <p> Start time: {{app.start_time|time}}</p>
+                <p> End time: {{app.end_time|time}}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -77,3 +77,11 @@ class OffHourListView(ListView):
 
     def get_queryset(self):
         return OffHour.objects.filter(date__gte = timezone.now()).order_by('-date')
+
+class ScheduleListView(ListView, LoginRequiredMixin):
+    model = Appointment
+    template_name = "schedule_list.html"
+    login_url = 'login/'
+    
+    def get_queryset(self):
+        return Appointment.objects.filter(date__gte = timezone.now()).filter(guest = self.request.user).order_by('-date')
