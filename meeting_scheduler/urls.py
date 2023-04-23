@@ -6,6 +6,7 @@ from . import views
 app_name='meeting_scheduler'
 
 urlpatterns = [
-    path("offhour/<int:pk>", views.OffHourCreateView.as_view(), name="offhour_create"),
+    path("offhour/create/<int:pk>", views.OffHourCreateView.as_view(), name="offhour_create"),
     # path("jsi18n", JavaScriptCatalog.as_view(), name="js-catalog"),
+    path("appointmane/create/<int:pk>", views.AppointmentCreateView.as_view(), name="appointment_create"),
 ]

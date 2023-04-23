@@ -7,6 +7,7 @@
         <div> 
             {% if user.is_authenticated %}
             <a href = "{% url 'meeting_scheduler:offhour_create' pk=user.pk %}"> Mark Off-hours </a>
+            <a href = "{% url 'meeting_scheduler:appointment_create' pk=user.pk %}"> Schedule a meeting </a>
             {% endif %}
         </div>
     </div>
