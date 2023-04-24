@@ -1,6 +1,8 @@
 # Meeting Scheduler - Nbyula Assignment 1
 A platform to schedule a meeting by considering the off hours of the other terraformers
 
+![website link](http://shravanksubrahmanya.pythonanywhere.com/)
+
 The project has a secure platform for the Terraformers to Create/schedule meeting with other terraformers by considering their off hours. A Terraformer can Login, Update his profile and password, Mark his off-hours of the day and can schedule meeting with other terraformer. If the meeting schedule overlaps with the off-hour of the guest, the terraformer can not schedule the meeting. The terraformer can refer the Off-hour schedule of other terraformers before creating the meeting.
 Once the meeting has been scheduled the guest has to confirm it to make that as an appointment. The guest can cancel the appointment as well. This module is necessry in case there is another meeting has been scheduled with the guest for same timeslot.
 
